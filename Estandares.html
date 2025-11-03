@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Estándares | Centinet</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="Imagenes/logocentinet/Window/Negro Transparente.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="Imagenes/logocentinet/Window/Negro Transparente.png" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      :root {
+        --bg: #0b0b0c;
+        --fg: #ffffff;
+        --muted: #9ca3af;
+        --line: #3f3f3f34;
+        --brand: #e5e7eb;
+        --accent: #8b5cf6; 
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", "Segoe UI Emoji";
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        padding-top: 70px;
+      }
+
+      .container { width: min(1120px, 92%); margin: 0 auto; }
+      .grid { display: grid; gap: 24px; }
+      .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      @media (max-width: 960px) { .grid-3 { grid-template-columns: 1fr; } }
+      @media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
+
+
+      .nav {
+        position: fixed; 
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+        backdrop-filter: saturate(180%) blur(12px);
+        background: rgba(11, 11, 12, 0.9);
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-inner { display: flex; align-items: center; justify-content: space-between; height:70px; }
+      .brand { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; letter-spacing: 0.2px; }
+      .brand-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--brand); opacity: 0.6; }
+
+      .nav-links { display: flex; gap: 18px; font-size: 14px; }
+
+      .nav-links a {
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 0.86;
+        transition: color 0.2s ease, opacity 0.2s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent);
+        opacity: 1;
+      }
+
+      .hero { padding: 30px 0 55px; text-align: center; }
+      .kicker { font-size: 14px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+      .title { font-size: clamp(36px, 6vw, 64px); font-weight: 700; margin: 8px 0 12px; letter-spacing: -0.02em; }
+      .subtitle { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); margin-bottom: 28px; }
+      .subpage-grid {
+        display: grid;
+        grid-template-columns: repeat(2,1fr); 
+        gap: 32px;
+        margin-top: 32px;
+      }
+
+      .sub-col {
+        background: #1e12392c;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        text-align: left;
+        transition: transform 0.4s, box-shadow 0.4s;
+      }
+
+      .sub-col img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .sub-col h3 {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        text-align: center;
+        color: #fff;
+      }
+
+      .sub-col ul {
+        padding-left: 20px;
+        margin: 0;
+        color: #d1d5db;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .sub-col ul li { margin-bottom: 6px; }
+
+      .sub-col:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+      }
+
+      .price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-top: 16px;
+        text-align: center;
+      }
+
+      .cotizar-btn, .cotizar-btn1 {
+        display: block;
+        margin: 30px auto 0;
+        padding: 10px 20px;
+        border-radius: 999px;
+        border: 1px solid #ffffff;
+        background: #ffffff;
+        color: #000000;
+        font-size: 14px;
+        font-weight: 500;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.3s;
+        width: fit-content;
+      }
+
+      .cotizar-btn:hover, .cotizar-btn1:hover {
+        background: #000000;
+        color: #ffffff;
+      }
+
+      @media (max-width: 960px) {
+        .subpage-grid { grid-template-columns: 1fr; }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    
+   <nav class="nav">
+      <div class="container nav-inner">
+        <a href="index.html" class="brand" aria-label="Centinet, inicio">
+          <img src="Imagenes/logocentinet/logo con nombre/Logodefinitivonegrotransparente.png" alt="Logo Centinet" style="height:38px; width:auto; border-radius:8px;"/>
+        </a>
+        <div class="nav-links" role="navigation" aria-label="principal">
+          <a href="Descargar.html">Descargar</a>   
+          <a href="Queofrecemos.html">¿Qué somos?</a>
+          <a href="index.html#tecnologias">Tecnologías</a>
+          <a href="Ventajas.html">Alcance</a>
+          <a href="index.html#filosofia">Nuestra Filosofía</a>
+          <a href="index.html#contacto">Contacto</a>
+          <a href="index.html#Sobrenosotros">Sobre Nosotros</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero container">
+      <p class="kicker">CENTINET</p>
+      <h1 class="title">Protección con estándares internacionales</h1>
+      <p class="subtitle">Confiable. Seguro. Certificado.</p>
+    </header>
+
+    <div class="subpage-grid">
+      <div class="sub-col">
+        <img src="Imagenes/estandares/ISO.png" alt="ISO/IEC 27001">
+        <div style="padding:24px;">
+          <h3>ISO/IEC 27001</h3>
+          <ul>
+            <li>Estándar internacional de seguridad de la información.</li>
+            <li>Define cómo implementar un Sistema de Gestión de Seguridad de la Información (SGSI).</li>
+            <li>Ayuda a proteger la confidencialidad, integridad y disponibilidad de los datos.</li>
+            <li>Incluye controles para gestión de riesgos y cumplimiento legal.</li>
+            <li>Certificable por organismos acreditados.</li>
+          </ul>
+          <a href="https://www.iso.org/es/norma/27001" class="cotizar-btn">Más información</a>
+        </div>
+      </div>
+
+      <div class="sub-col">
+        <img src="Imagenes/estandares/MITRE.png" alt="MITRE ATT&CK">
+        <div style="padding:24px;">
+          <h3>MITRE ATT&CK</h3>
+          <ul>
+            <li>Marco de conocimiento sobre tácticas, técnicas y procedimientos de ciberataques.</li>
+            <li>Basado en observaciones del mundo real.</li>
+            <li>Utilizado para detección de amenazas y respuesta a incidentes.</li>
+            <li>Permite evaluar la madurez de las defensas de una organización.</li>
+            <li>Actualizado constantemente con nuevas amenazas.</li>
+          </ul>
+          <a href="https://www.ibm.com/es-es/think/topics/mitre-attack" class="cotizar-btn1">Más información</a>
+        </div>
+      </div>
+    </div>
+
+    <footer style="
+      width: 100%;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    ">
+      <p style="font-size: 12px; color: var(--muted); margin: 0;">
+        © <span id="y"></span> Centinet Inc. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
